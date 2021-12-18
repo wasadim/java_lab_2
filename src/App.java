@@ -1,46 +1,37 @@
-import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) throws Exception {
         
-        /* ćw.2 pętle for */
+        /* cw.4  */
 
-        /* zad.1 Napisz program który będzie iterował od 100 do 0,
-         *  i wyświetlał liczby które są podzielne przez ostatnią cyfrę waszego indeksu
-         * (jesli tą liczbą jest 0 to przez 2 ostatnie) */
+        /* zad.1 napisać 3 pętle for i użyc:
+        a) w pierwszej pętli break
+        b) w drugiej pętli continue
+        c) w trzeciej pętli return
+        */
 
+        for(int i =1; i > 0; i++){
+            System.out.println("bez break iterowałbym w nieskończoność!");
+            break;
+        }
 
+        int[] lista = {1,2,3,4,5,6,7,8,9};
+        for(int wartosc : lista){
+            int reszta = wartosc % 2;
+            if(reszta == 1)
+                continue;
+            System.out.println("wartosc " + wartosc + " jest parzysta!");
+        }
 
-
-         /* ćw.2 pętle for */
-        /* nr indexu 57660 */
-        int digits = 6; // dzielenie przez zero raczej sie nie uda 
-            for (int i = 100; i >= 0; i--){
-                int reszta = i % digits;
-                if (reszta == 0){ 
-                    System.out.println("liczba "+ i +" podzielna przez "+ digits);
-                }
+        for (int i=0; i < lista.length; i++){
+            if (lista[i] == 5){
+                System.out.println("znalazłem wartosc 5 pod indexem " + i + " -  opuszczam program!");
+                return;
             }
+            System.out.println("sprawdziłem index " + i + " który jest równy " + lista[i]);
+        }   
+        
+        System.out.println("użytkownik ma brudne stopy - ale nie muszę sie martwić tym printem bo i tak go nie zobaczy!");
+        System.out.println("no chyba ze w liscie nie bedzie 5... to bede miał przechlapane. ");
 
-
-        /* zad.2 Napisz program który będzie uzupełniał tablicę 5-cio elementową int[] liczbami
-         * wprowadzanymi z klawiatury (użyć klasy Scanner), a następnie będzie wyświetlał elementy tablicy
-         * za pomocą pętli forEach powiększone o 11 */
-
-
-        Scanner scan = new Scanner(System.in);
-        int[] lista = new int[5];
-        for (int i=0; i  <5; i++){
-
-            System.out.print("podaj " + (i+1) + " liczbę: ");
-            lista[i] = scan.nextInt();
-        }
-        scan.close();
-        int enumerate = 1;
-        for (int wartosc : lista) 
-        { 
-            System.out.println("element nr: " + enumerate + " + 11 to: " + (wartosc+11));
-            enumerate++;
-        }
     }
 }
