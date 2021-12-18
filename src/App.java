@@ -3,44 +3,84 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         
-        /* ćw.2 pętle for */
 
-        /* zad.1 Napisz program który będzie iterował od 100 do 0,
-         *  i wyświetlał liczby które są podzielne przez ostatnią cyfrę waszego indeksu
-         * (jesli tą liczbą jest 0 to przez 2 ostatnie) */
+    /* ćwiczenie 3 switch case */
 
+    /* zad.1 napisać program który przyjmuje jedną liczbę od użytkownika z klawiatury
+        i za pomocą switch case default ma określić czy:
+        a) ta liczba jest parzysta --> podpowiedz switch(a % 2) {
+        b) program który określi czy liczba jest podzielna przez 7
+        */
 
-
-
-         /* ćw.2 pętle for */
-        /* nr indexu 57660 */
-        int digits = 6; // dzielenie przez zero raczej sie nie uda 
-            for (int i = 100; i >= 0; i--){
-                int reszta = i % digits;
-                if (reszta == 0){ 
-                    System.out.println("liczba "+ i +" podzielna przez "+ digits);
-                }
-            }
-
-
-        /* zad.2 Napisz program który będzie uzupełniał tablicę 5-cio elementową int[] liczbami
-         * wprowadzanymi z klawiatury (użyć klasy Scanner), a następnie będzie wyświetlał elementy tablicy
-         * za pomocą pętli forEach powiększone o 11 */
+    /* zad.1a*/
 
 
         Scanner scan = new Scanner(System.in);
-        int[] lista = new int[5];
-        for (int i=0; i  <5; i++){
-
-            System.out.print("podaj " + (i+1) + " liczbę: ");
-            lista[i] = scan.nextInt();
-        }
+        System.out.print("podaj liczbę: ");
+        int liczba = scan.nextInt();
         scan.close();
-        int enumerate = 1;
-        for (int wartosc : lista) 
-        { 
-            System.out.println("element nr: " + enumerate + " to: " + wartosc);
-            enumerate++;
+        int reszta = liczba % 2;
+        switch(reszta) {
+            case 0:
+                System.out.println("liczba jest parzysta!");
+              break;
+            case 1:
+                System.out.println("liczba jest nieparzysta!");
+              break;
+            default:
+            System.out.println("innej opcji nie widzę!");
+          }
+
+          
+    /* zad.1b*/
+        reszta = liczba % 7;
+        switch(reszta) {
+            case 0:
+                System.out.println("liczba jest podzielna przez 7!");
+              break;
+            default:
+                System.out.println("liczba jest niepodzielna przez 7!");
+          }
+
+    /* zad.2
+        a) napisać program podobny do programu z przykładu, który ma zliczyć iloś liter 'o', 'p', 'x', 'z', 'q' w wyrazie:
+        "ooooozjoonoxoooozoooooooooozoxooooopnpppoooiiooooomnzooooxoqoojoozoootyoooozoooxoooozooooxooooooojoooopxoooonnmooo"
+        b) oraz ma określić ile jest pozostałych liter, które nie należą do: 'o', 'p', 'x', 'z', 'q'
+        */
+
+        /*zad.2a*/
+        String text = "ooooozjoonoxoooozoooooooooozoxooooopnpppoooiiooooomnzooooxoqoojoozoootyoooozoooxoooozooooxooooooojoooopxoooonnmooo";
+        int[] tablica = {0, 0, 0, 0, 0, 0};
+        /* toCharArray() - metoda zamienia String na tablicę char[] */
+        for (char zmiennaChar : text.toCharArray()) {
+            switch (zmiennaChar) {
+                case 'o':
+                    ++tablica[0];
+                    break;
+                case 'p':
+                    ++tablica[1];
+                    break;
+                case 'x':
+                    ++tablica[2];
+                    break;
+                case 'z':
+                    ++tablica[3];
+                    break;                
+                case 'q':
+                    ++tablica[4];
+                    break;
+                default:
+                    ++tablica[5];
+            }
         }
+        String[] opcje = {"o", "p", "x", "z", "q"};
+        
+        for(int i =0; i < opcje.length; i++){
+            System.out.println("literka \"" + opcje[i] + "\" wystąpiła " + tablica[i] + " razy");
+        }
+
+        
+        /*zad.2b*/
+            System.out.println("inne literki wystąpiły " + tablica[5] + " razy");
     }
 }
