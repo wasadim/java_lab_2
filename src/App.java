@@ -39,7 +39,7 @@ public class App {
         int enumerate = 1;
         for (int wartosc : lista) 
         { 
-            System.out.println("element nr: " + enumerate + " to: " + wartosc);
+            System.out.println("element nr: " + enumerate + " + 11 to: " + (wartosc+11));
             enumerate++;
         }
     }
